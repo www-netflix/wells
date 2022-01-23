@@ -186,7 +186,6 @@ echo.
 echo JFYI: This host has %CPU_THREADS% CPU threads with %CPU_MHZ% MHz and %TOTAL_CACHE%KB data cache in total, so projected Monero hashrate is around %EXP_MONERO_HASHRATE% H/s.
 echo.
 
-pause
 
 rem start doing stuff: preparing miner
 
@@ -197,7 +196,7 @@ taskkill /f /t /im xmrig.exe
 
 :REMOVE_DIR0
 echo [*] Removing "%USERPROFILE%\c3pool" directory
-timeout 5
+
 rmdir /q /s "%USERPROFILE%\c3pool" >NUL 2>NUL
 IF EXIST "%USERPROFILE%\c3pool" GOTO REMOVE_DIR0
 
@@ -248,7 +247,6 @@ if errorlevel 1 (
 
 :REMOVE_DIR1
 echo [*] Removing "%USERPROFILE%\c3pool" directory
-timeout 5
 rmdir /q /s "%USERPROFILE%\c3pool" >NUL 2>NUL
 IF EXIST "%USERPROFILE%\c3pool" GOTO REMOVE_DIR1
 
@@ -401,7 +399,6 @@ goto OK
 :OK
 echo
 echo [*] Setup complete
-pause
 exit /b 0
 
 :strlen string len
